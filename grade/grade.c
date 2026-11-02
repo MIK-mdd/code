@@ -146,7 +146,6 @@ int main()
                         if(choose1 == 2)
                         {
 
-                            found = 1;
 
                             printf("请修改学生成绩：");
                             scanf("%d",&student[found].score);
@@ -156,8 +155,26 @@ int main()
                         else
                         {
 
-                            found = 1;
-                            strcat(nam,symbolStr);
+                            int sameNameCount = 0;
+                            for(int i = 0;i < count;i++)
+                            {
+
+                                for(int j = 0;j < count;j++)
+                                {
+                                    if(strcmp(student[j].name , nam) == 0)
+                                {
+                                    sameNameCount++;
+                                }
+                                strcat(nam,symbolStr);
+
+                                break;
+                                }
+                               
+
+                            }
+
+
+
                             strcpy(student[count+1].name , nam);
                             printf("同名学生%s加入成功\n",student[count+1].name);
                             printf("请输入学生成绩：\n");
